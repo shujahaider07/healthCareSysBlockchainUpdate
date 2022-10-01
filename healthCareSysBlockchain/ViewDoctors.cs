@@ -30,24 +30,31 @@ namespace healthCareSysBlockchain
 
         public void bindGrid()
         {
-            SqlConnection sql = new SqlConnection(cs);
+            try
+            {
+                SqlConnection sql = new SqlConnection(cs);
 
-            string qry = "select * from doctoradd";
+                string qry = "select * from doctoradd";
 
-            sql.Open();
+                sql.Open();
 
-            SqlDataAdapter da = new SqlDataAdapter(qry, sql);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
+                SqlDataAdapter da = new SqlDataAdapter(qry, sql);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
 
-            dataGridView1.DataSource = dt;
-            DataGridViewImageColumn dgv = new DataGridViewImageColumn();
-            dgv = (DataGridViewImageColumn)dataGridView1.Columns[5];
-            dgv.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.RowTemplate.Height = 30;
+                dataGridView1.DataSource = dt;
+                DataGridViewImageColumn dgv = new DataGridViewImageColumn();
+                dgv = (DataGridViewImageColumn)dataGridView1.Columns[5];
+                dgv.ImageLayout = DataGridViewImageCellLayout.Zoom;
+                dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridView1.RowTemplate.Height = 30;
 
-            sql.Close();
+                sql.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -56,12 +63,19 @@ namespace healthCareSysBlockchain
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            SqlConnection sql = new SqlConnection(cs);
-            String qry = "select * from  doctoradd where Name like '%" + textBox1.Text + "%' ";
-            SqlDataAdapter da = new SqlDataAdapter(qry, sql);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            try
+            {
+                SqlConnection sql = new SqlConnection(cs);
+                String qry = "select * from  doctoradd where Name like '%" + textBox1.Text + "%' ";
+                SqlDataAdapter da = new SqlDataAdapter(qry, sql);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 

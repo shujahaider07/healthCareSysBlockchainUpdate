@@ -67,18 +67,25 @@ namespace healthCareSysBlockchain
 
         public void bindGrid()
         {
-            SqlConnection sql = new SqlConnection(cs);
-            sql.Open();
-            //   String qry = "select patientDiagnose.id , patientData.Name , patientData.Cnic ,  patientDiagnose.Disease , patientDiagnose.Prescription , patientDiagnose.Date  , patientData.pictues  from patientData inner join patientDiagnose on patientData.Name = patientDiagnose.Patients ";
+            try
+            {
+                SqlConnection sql = new SqlConnection(cs);
+                sql.Open();
+                //   String qry = "select patientDiagnose.id , patientData.Name , patientData.Cnic ,  patientDiagnose.Disease , patientDiagnose.Prescription , patientDiagnose.Date  , patientData.pictues  from patientData inner join patientDiagnose on patientData.Name = patientDiagnose.Patients ";
 
 
-            string qry = "select patientDiagnose.id , patientData.Name , patientData.Cnic ,  patientDiagnose.Disease , patientDiagnose.Prescription , patientDiagnose.Date  , patientData.pictues as Picture from patientData inner join patientDiagnose on patientData.Name = patientDiagnose.Patients where patientDiagnose.id = '" + textBox2.Text + "'";
+                string qry = "select patientDiagnose.id , patientData.Name , patientData.Cnic ,  patientDiagnose.Disease , patientDiagnose.Prescription , patientDiagnose.Date  , patientData.pictues as Picture from patientData inner join patientDiagnose on patientData.Name = patientDiagnose.Patients where patientDiagnose.id = '" + textBox2.Text + "'";
 
 
-            SqlDataAdapter da = new SqlDataAdapter(qry, sql);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+                SqlDataAdapter da = new SqlDataAdapter(qry, sql);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 

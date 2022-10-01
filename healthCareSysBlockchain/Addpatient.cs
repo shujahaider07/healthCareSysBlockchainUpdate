@@ -86,24 +86,7 @@ namespace healthCareSysBlockchain
 
         }
 
-        //public void bindDoctors()
-        //{
-        //    SqlConnection sql = new SqlConnection(cs);
-        //    String qry = "select * from doctoradd";
-        //    sql.Open();
-        //    SqlCommand cmd = new SqlCommand(qry,sql);
-        //    SqlDataAdapter da = new SqlDataAdapter(cmd);
-        //    DataTable dt = new DataTable();
-        //    da.Fill(dt);
-
-        //    comboBox1.DisplayMember = "name";
-        //    comboBox1.DataSource = dt;
-
-
-        //    sql.Close();
-
-
-        //}
+       
 
 
         public void InsertPaData(string text)
@@ -148,10 +131,12 @@ namespace healthCareSysBlockchain
 
         private object SavePhoto()
         {
-            MemoryStream ms = new MemoryStream();
-            pictureBox2.Image.Save(ms,pictureBox2.Image.RawFormat);
-            return ms.GetBuffer();
-
+            
+                MemoryStream ms = new MemoryStream();
+                pictureBox2.Image.Save(ms, pictureBox2.Image.RawFormat);
+                return ms.GetBuffer();
+            
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -175,15 +160,23 @@ namespace healthCareSysBlockchain
 
         public void GetId()
         {
-            SqlConnection sql = new SqlConnection(cs);
-            String qry = "select count(id)+1 from patientdata";
+            try
+            {
 
-            sql.Open();
-            SqlDataAdapter da = new SqlDataAdapter(qry, sql);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            Encryptetxt.Text = dt.Rows[0][0].ToString();
 
+                SqlConnection sql = new SqlConnection(cs);
+                String qry = "select count(id)+1 from patientdata";
+
+                sql.Open();
+                SqlDataAdapter da = new SqlDataAdapter(qry, sql);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                Encryptetxt.Text = dt.Rows[0][0].ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
 
@@ -210,15 +203,22 @@ namespace healthCareSysBlockchain
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "images |*.jpeg; *.jpg;  *.png;";
-            ofd.FileName = "";
-            if (ofd.ShowDialog() == DialogResult.OK)
+            try
             {
-                pictureBox2.Image = new Bitmap(ofd.FileName);
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "images |*.jpeg; *.jpg;  *.png;";
+                ofd.FileName = "";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox2.Image = new Bitmap(ofd.FileName);
+
+                }
 
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void phoneTxt_KeyPress(object sender, KeyPressEventArgs e)

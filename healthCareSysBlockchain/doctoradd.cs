@@ -32,7 +32,7 @@ namespace healthCareSysBlockchain
             
             sql.Open();
             String qry = "insert into doctoradd values (@id,@name , @age , @specilization,@password,@picture)";
-           // var image = new ImageConverter().ConvertTo(pictureBox2.Image,typeof(Byte[]));
+          
             SqlCommand cmd = new SqlCommand(qry, sql);
             cmd.Parameters.AddWithValue("@name", nametxt.Text);
             cmd.Parameters.AddWithValue("@id", textBox1.Text);
@@ -139,15 +139,22 @@ namespace healthCareSysBlockchain
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "images |*.jpeg; *.jpg;  *.png;";
-            ofd.FileName = "";
-            if (ofd.ShowDialog() ==DialogResult.OK)
+            try
             {
-                pictureBox2.Image = new Bitmap(ofd.FileName);
-            }
 
-            
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "images |*.jpeg; *.jpg;  *.png;";
+                ofd.FileName = "";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBox2.Image = new Bitmap(ofd.FileName);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void agetxt_KeyPress(object sender, KeyPressEventArgs e)

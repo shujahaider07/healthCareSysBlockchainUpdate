@@ -95,13 +95,20 @@ namespace healthCareSysBlockchain
 
         public void BindComboBox()
         {
-            SqlConnection sql = new SqlConnection(cs);
-            String qry = "select * from patientdata";
-            SqlDataAdapter da = new SqlDataAdapter(qry, sql);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            comboBox1.DisplayMember = "Name";
-            comboBox1.DataSource = dt;
+            try
+            {
+                SqlConnection sql = new SqlConnection(cs);
+                String qry = "select * from patientdata";
+                SqlDataAdapter da = new SqlDataAdapter(qry, sql);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                comboBox1.DisplayMember = "Name";
+                comboBox1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
 
         }
@@ -123,12 +130,21 @@ namespace healthCareSysBlockchain
 
         public void BindGrid()
         {
-            SqlConnection sql = new SqlConnection(cs);
-            string qry = "select * from patientdiagnose where doctorName  =  '"+textBox1.Text+"'";
-            SqlDataAdapter da = new SqlDataAdapter(qry,sql);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
+            try
+            {
+
+
+                SqlConnection sql = new SqlConnection(cs);
+                string qry = "select * from patientdiagnose where doctorName  =  '" + textBox1.Text + "'";
+                SqlDataAdapter da = new SqlDataAdapter(qry, sql);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 
@@ -140,6 +156,11 @@ namespace healthCareSysBlockchain
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

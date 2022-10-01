@@ -56,6 +56,11 @@ namespace healthCareSysBlockchain
                         Hospita1Dashboard d = new Hospita1Dashboard();
                         d.Show();
                         this.Hide();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Not Matched");
                     }
 
 
