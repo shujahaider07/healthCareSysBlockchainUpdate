@@ -113,7 +113,7 @@
             // 
             // prescriptioTxt
             // 
-            this.prescriptioTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prescriptioTxt.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prescriptioTxt.Location = new System.Drawing.Point(124, 275);
             this.prescriptioTxt.Multiline = true;
             this.prescriptioTxt.Name = "prescriptioTxt";
@@ -123,7 +123,7 @@
             // 
             // patienttxt
             // 
-            this.patienttxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patienttxt.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patienttxt.Location = new System.Drawing.Point(126, 167);
             this.patienttxt.Multiline = true;
             this.patienttxt.Name = "patienttxt";
@@ -133,7 +133,7 @@
             // 
             // doctortxt
             // 
-            this.doctortxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctortxt.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doctortxt.Location = new System.Drawing.Point(126, 113);
             this.doctortxt.Multiline = true;
             this.doctortxt.Name = "doctortxt";
@@ -176,7 +176,7 @@
             // 
             // Diseasetxt
             // 
-            this.Diseasetxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Diseasetxt.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Diseasetxt.Location = new System.Drawing.Point(126, 219);
             this.Diseasetxt.Multiline = true;
             this.Diseasetxt.Name = "Diseasetxt";
